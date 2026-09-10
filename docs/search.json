@@ -4,13 +4,34 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "I grew up in Lahore Pakistan during my early childhood. During 2006, I moved to Vancouver with my family to discover new opportunties. I studied at a private religious school during elementary and completed an accelerated learning program at Palmer Secondary in Richmond, BC during high school. For my undergrad, I went to SFU and completed my bachelors in Data Science with a miinor in Computer Science. Before starting the MDS program, I worked on building small projects that might help make my portfolio more applicable to entry level positions, some included a personal wesbite, an terminal command that auto applies to job positions, and more."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Abdullah’s Portfolio",
+    "title": "Abdullah Naeem",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Hi! My name is Abdullah Naeem. I am from Lahore, Pakistan. Before starting the MDS program, I was a student at SFU doing a bachelors in Data Science. During the program, I hope to make new friends, explore the campus and participate in rec activities, and learn from my peers. I also hope to get an undergraduate teaching assisnt position here at UBC after graduation. I love hiking, playing badminton, and playing video games."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I grew up in Lahore Pakistan during my early childhood. During 2006, I moved to Vancouver with my family to discover new opportunties. I studied at a private religious school during elementary and completed an accelerated learning program at Palmer Secondary in Richmond, BC during high school. For my undergrad, I went to SFU and completed my bachelors in Data Science with a miinor in Computer Science. Before starting the MDS program, I worked on building small projects that might help make my portfolio more applicable to entry level positions, some included a personal wesbite, an terminal command that auto applies to job positions, and more."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why Data Science",
+    "text": "Why Data Science\nWhat drew me to apply for the MDS program at UBC was more than just the degree and the title. Throughout my undergrad, I always wanted to study at one of Canadas top universities. I also enjoy meeting new people, learning new things, and building my professional network. These are some aspects that made me wnat to join a closely connected program where students can study together and learn from each other. I also enjoy the aspect of collaboration and problem solving that holds a big part of Data Science."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of Data Science",
+    "text": "Outside of Data Science\nOutside of academia, I enjoy playing badminton and going out to eat whenever I feel down or sick of schoolwork. I enjoy listening to classical music (particulary on piano). I hope to learn the piano one day to help improve my coordination and rythm. On the weekends, I like to hang out with friends, play games, and go on the occasional hike here and there around Squamish and North Vancouver."
   }
 ]

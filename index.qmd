@@ -1,7 +1,12 @@
 ---
-title: "Abdullah's Portfolio"
+title: "Abdullah Naeem"
+about: 
+    template: jolla
+    image: images/profile.jpg
 ---
 
-This is a Quarto website.
+Hi! My name is Abdullah Naeem. I am from Lahore, Pakistan. Before starting 
+the MDS program, I was a student at SFU doing a bachelors in Data Science. During the program, 
+I hope to make new friends, explore the campus and participate in rec activities, and learn from my peers. I also hope 
+to get an undergraduate teaching assisnt position here at UBC after graduation. I love hiking, playing badminton, and playing video games. 
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
