@@ -7,7 +7,7 @@ title: "About"
 I grew up in Lahore Pakistan during my early childhood. During 2006, I moved to 
 Vancouver with my family to discover new opportunties. I studied at a private religious school during elementary and 
 completed an accelerated learning program at Palmer Secondary in Richmond, BC during high school. For my undergrad, I went to SFU and completed
-my bachelors in Data Science with a miinor in Computer Science. Before starting the MDS program, I worked on building small projects
+my bachelors in Data Science with a minor in Computer Science. Before starting the MDS program, I worked on building small projects
 that might help make my portfolio more applicable to entry level positions, some included a personal wesbite, an terminal command that auto applies to job 
 positions, and more.
 
