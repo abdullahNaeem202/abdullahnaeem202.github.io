@@ -42,3 +42,15 @@ quarto preview
 This will start a local server and open the site in your browser automatically. 
 
 ## Data Source
+
+Both the R and Python posts use data from the [COVID-19 Data 
+Repository by the Center for Systems Science and Engineering (CSSE) at 
+Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19), 
+licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+**note that mo data file is committed to this repository.** Instead, both posts read the 
+releavnt dataa directly from its GitHub URL at render time. 
+
+- **An internet connection is required to build this site.** If the linked repository 
+  is ever moved, renamed, or taken offline, rebuilding 
+  will fail even though all code and environments are correctly set up.
