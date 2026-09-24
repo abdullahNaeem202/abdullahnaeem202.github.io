@@ -54,3 +54,6 @@ releavnt data directly from its GitHub URL at render time.
 - **An internet connection is required to build this site.** If the linked repository 
   is ever moved, renamed, or taken offline, rebuilding 
   will fail even though all code and environments are correctly set up.
+
+## Use of AI Assistance
+I want to acknowledge that I used Claude to help me with debugging and clarifying issues while working on the Python analysis.
