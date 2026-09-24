@@ -1,0 +1,62 @@
+---
+title: "R Analysis on Cumulative Confirmed Cases of COVID-19 in BC"
+author: "Abdullah Naeem"
+date: 2026-09-23
+---
+
+```{r setup}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(lubridate)
+```
+
+Data: [COVID-19 Data Repository by the Center for Systems Science and 
+Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19), 
+licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/),
+© Johns Hopkins University 2020.
+
+> Dong E, Du H, Gardner L. An interactive web-based dashboard to track 
+> COVID-19 in real time. *Lancet Infect Dis.* 2020;20(5):533-534. 
+> doi: 10.1016/S1473-3099(20)30120-1
+
+This R code is adapted from DSCI523: Programming for Data Manipulation (Lab 2)
+
+In this analysis, I will be analyzing the number of confirmed COVID-19 cases between June 2021 and September 2021 in R. This analysis is the same analysis I did in my other blog post with Python. 
+
+```{r}
+#| message: false
+#| warning: false
+url <- "https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
+covid_global <- read_csv(url)
+
+three_months <- interval(start = ymd("2021-06-10"), end = ymd("2021-09-10"))
+```
+
+First, I read in the CSV file from the URL and extracted the 3 month interval between June 2021 and September 2021 using the interval() function from the "lubridate" package in R. Since both dates were in the format '%y-%m-$d', I used the ymd() function to convert these to date objects.
+
+```{r}
+bc_covid19_confirmed_3_months <- covid_global |>
+  filter(`Province/State` == "British Columbia")  |>
+  select(5:ncol(covid_global)) |>
+  pivot_longer(cols = everything(),
+               names_to = "date",
+               values_to = "confirmed_cases") |>
+  mutate(date = mdy(date)) |>
+  filter(date %within% three_months)
+
+bc_covid19_confirmed_3_months
+```
+
+This code chunk was taken directly from the lab2 assignment (as it was provided starter code). Here, a pipeline is created that filters relevant rows, selects columns we are interested in, performs the pivot to reshape the dataframe into a long format, adds a new date column, and finally filters the data so that we only consider dates within the three month interval. From the tibble that is outputted, we have an exact count of the number of confirmed cases for every month in our 3 month interval.
+
+```{r}
+#| label: fig-covid-cases
+#| fig-cap: "Cumulative confirmed COVID-19 cases in BC, June–September 2021."
+ggplot(bc_covid19_confirmed_3_months, aes(x = date, y = confirmed_cases)) +
+  geom_line(color = "steelblue", linewidth = 1) +
+  labs(x = "Date", y = "Cumulative confirmed cases") +
+  theme_bw()
+```
+
+From this plot, notice that there is an upward trend in the number of confirmed cases from June 2021 to September 2021. This observation aligns with my results from the Python analysis as similar trends were present. 

@@ -1,0 +1,60 @@
+---
+title: "Python Analysis on Cumulative Confirmed Cases of COVID-19 in BC"
+author: "Abdullah Naeem"
+date: 2026-09-23
+---
+
+```{python}
+#| message: false 
+#| warning: false
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+Data: [COVID-19 Data Repository by the Center for Systems Science and 
+Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19), 
+licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/),
+© Johns Hopkins University 2020.
+
+> Dong E, Du H, Gardner L. An interactive web-based dashboard to track 
+> COVID-19 in real time. *Lancet Infect Dis.* 2020;20(5):533-534. 
+> doi: 10.1016/S1473-3099(20)30120-1
+
+This python code is adapted from DSCI523: Programming for Data Manipulation (Lab 2)
+
+In this analysis, I will be analyzing the number of confirmed COVID-19 cases between June 2021 and September 2021. During these 3 months, the COVID-19 pandemic was quite relevant across media and impacted social gatherings, meetups, and education alike. 
+
+```{python}
+url = "https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
+covid_global = pd.read_csv(url)
+
+bc_rows = covid_global[covid_global["Province/State"] == "British Columbia"]
+date_cols = covid_global.columns[4:]
+```
+
+First, I read in the data from the URL and filtered for only the rows in the dataset where the value of 
+"Province/State" was "British Columbia". I indexed only the date columns in the dataset by indexing from column 4 to the last column (as these were all dates).
+
+```{python}
+bc_long = bc_rows.melt(id_vars=["Province/State"], value_vars=date_cols,
+                       var_name="date", value_name="confirmed_cases")
+bc_long["date"] = pd.to_datetime(bc_long["date"], format="%m/%d/%y")
+
+bc_covid = bc_long[(bc_long["date"] >= "2021-06-10") & (bc_long["date"] <= "2021-09-10")].copy()
+```
+
+I then melted the original dataframe into a long format so that there is a new column called 'date' with all
+the date values and a new column called confirmed_cases with values for the number of confirmed cases for each date. Since the date column is not inherently a datetime variable, I needed to explicitly convert the variable into datetime using Pandas with the correct format. Lastly, in this step, I filtered for only the dates between 2021/06/10 and 2021/09/10 to look at how the number of cumulative cases changed over these 3 months. 
+
+```{python}
+#| label: fig-cumulative-covid-cases
+#| fig-cap: "Cumulative confirmed COVID-19 cases in BC, June–September 2021."
+fig, ax = plt.subplots()
+ax.plot(bc_covid["date"], bc_covid["confirmed_cases"], color="steelblue")
+ax.set_xlabel("Date")
+ax.set_ylabel("Cumulative confirmed cases")
+plt.xticks(rotation=25, ha="right")
+plt.show()
+```
+
+From this plot, notice that there is clearly an increasing trend for the number of cumulative cases in BC as we went through the Summer of 2021. In particular, cases started to rise substantially starting in August and throughout September.
