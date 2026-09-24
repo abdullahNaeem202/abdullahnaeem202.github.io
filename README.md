@@ -28,3 +28,17 @@ renv::restore()
 ```bash
 uv run quarto render
 ```
+
+## Where the Built Site Lands
+Once rendered, all the relevant site files are written into the `docs/` folder. To view the site locally from the terminal, run either of the following commands from the top level: 
+```bash
+uv run quarto preview
+```
+
+```bash
+quarto preview
+```
+
+This will start a local server and open the site in your browser automatically. 
+
+## Data Source
